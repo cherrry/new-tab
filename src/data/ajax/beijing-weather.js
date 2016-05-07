@@ -1,26 +1,10 @@
 import $ from 'cheerio'
 import { sprintf } from 'sprintf-js'
 
+import htmlSource from './html-source'
+
 let domSource = function () {
-  return fetch('http://www.weather.com.cn/weather/101010100.shtml')
-    .then(function (response) {
-      return response.blob()
-    })
-    .then(function (blob) {
-      return new Promise(function (resolve, reject) {
-        let reader = new FileReader()
-
-        reader.onload = function () {
-          resolve(reader.result)
-        }
-
-        reader.onerror = function () {
-          reject(reader.error)
-        }
-
-        reader.readAsText(blob)
-      })
-    })
+  return htmlSource('http://www.weather.com.cn/weather/101010100.shtml')
     .then(function (html) {
       return $('.c7d > ul', html)
     })
