@@ -1,3 +1,9 @@
-.title {
-  color: #333;
+.container {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  top: 50%;
+  transform: translateY(-50%);
 }

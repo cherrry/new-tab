@@ -18,7 +18,7 @@ export default {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.json$/, loader: 'json' },
-      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[name]__[hash:base64:5]!sass') }
+      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass') }
     ]
   },
   plugins: [
