@@ -1,0 +1,21 @@
+@import "./common.scss";
+
+@mixin temp {
+  font-size: 2em;
+  margin: 0 .125em;
+}
+
+.min-temp {
+  @include temp;
+  color: #999;
+}
+
+.max-temp {
+  @include temp;
+  color: #666;
+}
+
+.weekday {
+  font-size: .825em;
+  color: #666;
+}
