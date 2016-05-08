@@ -11,10 +11,10 @@ class Weather extends React.Component {
     return (
       <div styleName="container">
         <Today />
-        <Forecast />
-        <Forecast />
-        <Forecast />
-        <Forecast />
+        <Forecast delay={1} />
+        <Forecast delay={2} />
+        <Forecast delay={3} />
+        <Forecast delay={4} />
       </div>
     )
   }

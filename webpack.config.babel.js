@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 export default {
   entry: {
     index: 'index',
-    vendor: ['cheerio', 'moment', 'sprintf-js', 'react', 'react-dom', 'react-css-modules']
+    vendor: ['cheerio', 'react', 'react-dom', 'react-css-modules']
   },
   output: {
     filename: '[name].js',

@@ -1,9 +1,34 @@
 import React from 'react'
+import ReactDom from 'react-dom'
 import CSSModules from 'react-css-modules'
+import Bounce from 'bounce.js'
 
 import styles from './forecast.scss'
 
 class Forecast extends React.Component {
+  static get propTypes() {
+    return {
+      delay: React.PropTypes.number.isRequired
+    }
+  }
+
+  componentDidMount() {
+    let elem = ReactDom.findDOMNode(this)
+    let delay = this.props.delay
+    new Bounce()
+    .translate({
+      from: { x: 0, y: 48 },
+      to: { x: 0, y: 0 },
+      duration: 2048 * Math.pow(1.18, delay)
+    })
+    .scale({
+      from: { x: 0.2, y: 0.2 },
+      to: { x: 1, y: 1 },
+      duration: 2048 * Math.pow(1.15, delay)
+    })
+    .applyTo(elem)
+  }
+
   render() {
     return (
       <div styleName="container">

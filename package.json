@@ -11,6 +11,7 @@
     "dev": "webpack -d --progress --watch"
   },
   "dependencies": {
+    "bounce.js": "^0.8.2",
     "cheerio": "^0.20.0",
     "moment": "^2.13.0",
     "react": "^15.0.2",
