@@ -3,8 +3,8 @@ import CSSModules from 'react-css-modules'
 
 import styles from './currently.scss'
 
-import Datetime from './datetime'
-import Weather from './weather'
+import Datetime from './currently/datetime'
+import Weather from './currently/weather'
 
 class Currently extends React.Component {
   render() {

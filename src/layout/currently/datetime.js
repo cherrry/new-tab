@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 
 import styles from './datetime.scss'
 
-import TimeFormat from './time-format'
+import TimeFormat from './datetime/time-format'
 
 class Datetime extends React.Component {
   render() {
