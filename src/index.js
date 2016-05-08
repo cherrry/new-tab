@@ -1,12 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import CSSModules from 'react-css-modules'
 
-class Index extends React.Component {
-  render() {
-    return <h1>It sucks</h1>
-  }
-}
+import Currently from './layout/currently'
 
 let mountPoint = document.getElementById('mount-point')
-
-ReactDom.render(<Index />, mountPoint)
+ReactDom.render(<Currently />, mountPoint)

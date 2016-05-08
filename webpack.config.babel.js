@@ -1,9 +1,10 @@
 import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
   entry: {
     index: 'index',
-    vendor: ['cheerio', 'react', 'react-dom', 'sprintf-js']
+    vendor: ['cheerio', 'react', 'react-dom', 'react-css-modules', 'sprintf-js']
   },
   output: {
     filename: '[name].js',
@@ -16,15 +17,12 @@ export default {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.json$/, loader: 'json' }
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[name]__[hash:base64:5]!sass') }
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new ExtractTextPlugin('style.css', { allChunks: true })
   ]
 }
