@@ -39,20 +39,19 @@ let today = function (source) {
 }
 
 let forecast = function (source) {
-  let doms = $('li', source)
+  let doms = $('li', source).toArray()
 
-  let thisMonth = (new Date()).getMonth()
+  let thisMonth = (new Date()).getMonth() + 1 // what?
   let thisDay = (new Date()).getDay()
 
   let result = {}
-  ;[1, 2, 3, 4, 5].forEach(function (idx) {
-    let dom = doms[idx]
+  doms.slice(1).forEach(function (dom) {
     let tempDom = $('p.tem', dom)
 
     let day = getDay($('h1', dom).text())
     let month = day < thisDay ? nextMonth(thisMonth) : thisMonth
 
-    let key = sprintf('%02d%02d', month, day)
+    let key = sprintf("%02d%02d", month, day)
     result[key] = {
       temp: {
         min: getTemp($('span', tempDom).text()),
