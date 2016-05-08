@@ -1,11 +1,14 @@
-.time {
-  font-size: 14em;
+@mixin common {
   display: block;
-  font-weight: 300;
+  font-weight: 200;
+}
+
+.time {
+  @include common;
+  font-size: 14em;
 }
 
 .date {
+  @include common;
   font-size: 1.5em;
-  display: block;
-  font-weight: 300;
 }

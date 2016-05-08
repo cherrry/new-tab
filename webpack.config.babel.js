@@ -12,13 +12,17 @@ export default {
     publicPath: '/dist'
   },
   resolve: {
-    root: __dirname + '/src'
+    root: __dirname + '/src',
+    alias: {
+      bower: __dirname + '/bower_components'
+    }
   },
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.json$/, loader: 'json' },
-      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass') }
+      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass') },
+      { test: /\.(eot|svg|ttf|woff2?)$/, loader: 'url' }
     ]
   },
   plugins: [

@@ -1,0 +1,16 @@
+@mixin opensans($file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: "Open Sans Light";
+    src: url("bower/google-open-sans/open-sans/#{$file-name}.eot");
+    src: url("bower/google-open-sans/open-sans/#{$file-name}.eot?#iefix") format("embedded-opentype"),
+         url("bower/google-open-sans/open-sans/#{$file-name}.woff") format("woff"),
+         url("bower/google-open-sans/open-sans/#{$file-name}.ttf") format("truetype"),
+         url("bower/google-open-sans/open-sans/#{$file-name}.svg#open-sans") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include opensans(light, 200, normal)
+@include opensans(regular, 400, normal)
+@include opensans(semibold, 600, normal)
