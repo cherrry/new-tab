@@ -6,7 +6,7 @@
   "offline_enabled": true,
   "options_page": "index.html",
   "permissions": [
-    "*://www.hko.gov.hk/*",
-    "*://www.weather.com.cn/*"
+    "*://*.hko.gov.hk/*",
+    "*://*.weather.com.cn/*"
   ]
 }

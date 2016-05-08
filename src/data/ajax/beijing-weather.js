@@ -3,71 +3,68 @@ import { sprintf } from 'sprintf-js'
 
 import htmlSource from './html-source'
 
-let domSource = function () {
-  return htmlSource('http://www.weather.com.cn/weather/101010100.shtml')
+let regionCode = 101010200 // Haidian Region
+
+let today = function () {
+  let reTemp = /(-?\d+)/
+
+  return htmlSource(`http://bj.weather.com.cn/`)
     .then(function (html) {
-      return $('.c7d > ul', html)
+      return $('.weatherColumns', html)
+    })
+    .then(function (domSource) {
+      let tempDom = $('dd > span', domSource).filter(function (_0, dom) {
+        return $(dom).text().indexOf("℃") !== -1
+      })
+
+      return {
+        temp: parseInt(tempDom.text().match(reTemp)[1])
+      }
     })
 }
 
-let getTemp = function () {
+let forecast = function () {
   let reTemp = /^\s*(-?\d+)/
+  let reDay = /\s*(\d+)/
 
-  return function (text) {
-    return parseInt(text.replace(reTemp, '$1'))
-  }
-}()
+  let thisDate = new Date()
+  let thisMonth = thisDate.getMonth()
+  let thisDay = thisDate.getDay()
 
-let getDay = function () {
-  let reDay = /^\s*(\d+)/
+  return htmlSource(`http://www.weather.com.cn/weather/${regionCode}.shtml`)
+    .then(function (html) {
+      return $('.c7d > ul', html)
+    })
+    .then(function (domSource) {
+      let result = {}
 
-  return function (text) {
-    return parseInt(text.replace(reDay, '$1'))
-  }
-}()
+      $('li', domSource).toArray().forEach(function (dom) {
+        let tempDom = $('p.tem', dom)
 
-let nextMonth = function (thisMonth) {
-  return thisMonth == 12 ? 1 : thisMonth + 1
-}
+        let day = parseInt($('h1', dom).text().replace(reDay, '$1'))
+        let month = day < thisDay ? (thisMonth + 1) % 12 : thisMonth
 
-let today = function (source) {
-  let dom = $('li:first-child', source)[0]
+        let key = sprintf("%02d%02d", month + 1 /* what ? */, day)
+        result[key] = {
+          temp: {
+            min: parseInt($('span', tempDom).text().replace(reTemp, '$1')),
+            max: parseInt($('i', tempDom).text().replace(reTemp, '$1'))
+          }
+        }
+      })
 
-  return {
-    temp: getTemp($('p.tem', dom).text())
-  }
-}
-
-let forecast = function (source) {
-  let doms = $('li', source).toArray()
-
-  let thisMonth = (new Date()).getMonth() + 1 // what?
-  let thisDay = (new Date()).getDay()
-
-  let result = {}
-  doms.slice(1).forEach(function (dom) {
-    let tempDom = $('p.tem', dom)
-
-    let day = getDay($('h1', dom).text())
-    let month = day < thisDay ? nextMonth(thisMonth) : thisMonth
-
-    let key = sprintf("%02d%02d", month, day)
-    result[key] = {
-      temp: {
-        min: getTemp($('span', tempDom).text()),
-        max: getTemp($('i', tempDom).text())
-      }
-    }
-  })
-
-  return result
+      return result
+    })
 }
 
 export default function () {
-  return domSource().then(function (dom) {
+  return Promise.all([
+    today(),
+    forecast()
+  ]).then(function (values) {
     return {
-      today: today(dom),
-      forecast: forecast(dom)
+      today: values[0],
+      forecast: values[1]
     }
   })
 }
