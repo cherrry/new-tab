@@ -26,7 +26,7 @@ class Forecast extends React.Component {
       to: { x: 1, y: 1 },
       duration: 2048 * Math.pow(1.15, delay)
     })
-    .applyTo(elem)
+    .applyTo(elem, { remove: true })
   }
 
   render() {

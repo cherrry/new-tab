@@ -16,7 +16,7 @@ class Datetime extends React.Component {
         to: { x: 0, y: 0 },
         duration: 3072
       })
-      .applyTo(elem)
+      .applyTo(elem, { remove: true })
   }
 
   render() {

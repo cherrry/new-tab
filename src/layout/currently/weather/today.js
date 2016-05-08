@@ -19,7 +19,7 @@ class Today extends React.Component {
         to: { x: 1, y: 1 },
         duration: 2048
       })
-      .applyTo(elem)
+      .applyTo(elem, { remove: true })
   }
 
   render() {
