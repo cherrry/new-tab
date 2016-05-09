@@ -5,6 +5,7 @@ import CSSModules from 'react-css-modules'
 import './index.scss'
 
 import Currently from './layout/currently'
+import Settings from './layout/settings'
 
-let mountPoint = document.getElementById('mount-point')
-ReactDom.render(<Currently />, mountPoint)
+ReactDom.render(<Currently />, document.getElementById('currently'))
+ReactDom.render(<Settings />, document.getElementById('settings'))

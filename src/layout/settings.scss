@@ -1,0 +1,31 @@
+.container {
+  position: fixed;
+  bottom: .2em;
+  right: .2em;
+}
+
+@mixin list-item {
+  color: #ccc;
+  font-size: 2em;
+}
+
+.toggle-button {
+  @include list-item;
+  padding: .125em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menu-items {
+  @include list-item;
+  display: inline-block;
+  list-style: none;
+  padding: .125em;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 .125em;
+    cursor: pointer;
+  }
+}

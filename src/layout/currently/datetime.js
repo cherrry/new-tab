@@ -53,7 +53,7 @@ class Datetime extends React.Component {
 
   render() {
     return (
-      <div>
+      <div {...this.props}>
         <TimeFormat styleName="time" formatter={timeFormat} />
         <TimeFormat styleName="date" formatter={dateFormat} />
       </div>

@@ -28,7 +28,7 @@ class TimeFormat extends React.Component {
   render() {
     let displayTime = this.props.formatter(new Date())
     return (
-      <span className={this.props.className}>{displayTime}</span>
+      <span {...this.props}>{displayTime}</span>
     )
   }
 }

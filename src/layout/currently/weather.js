@@ -9,7 +9,7 @@ import Forecast from './weather/forecast'
 class Weather extends React.Component {
   render() {
     return (
-      <div styleName="container">
+      <div {...this.props} styleName="container">
         <Today />
         <Forecast delay={1} />
         <Forecast delay={2} />
