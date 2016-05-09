@@ -1,26 +1,23 @@
 import React from 'react'
-import moment from 'moment'
-
-let getDisplayTime = function (timeFormat) {
-  return {
-    displayTime: moment().format(timeFormat)
-  }
-}
 
 class TimeFormat extends React.Component {
   static get propTypes() {
     return {
-      format: React.PropTypes.string.isRequired
+      formatter: React.PropTypes.func.isRequired
     }
   }
 
   componentWillMount() {
-    this.setState(getDisplayTime(this.props.format))
+    this.setState({ clock: true })
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      this.setState(getDisplayTime(this.props.format))
+      this.setState(function (state) {
+        return {
+          clock: !state.clock
+        }
+      })
     }, 1000)
   }
 
@@ -29,8 +26,9 @@ class TimeFormat extends React.Component {
   }
 
   render() {
+    let displayTime = this.props.formatter(new Date())
     return (
-      <span className={this.props.className}>{this.state.displayTime}</span>
+      <span className={this.props.className}>{displayTime}</span>
     )
   }
 }
