@@ -14,7 +14,8 @@ export default {
   resolve: {
     root: __dirname + '/src',
     alias: {
-      bower: __dirname + '/bower_components'
+      bower: __dirname + '/bower_components',
+      icon: __dirname + '/src/icon/icon.scss'
     }
   },
   module: {
