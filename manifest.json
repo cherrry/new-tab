@@ -6,6 +6,7 @@
   "offline_enabled": true,
   "options_page": "index.html",
   "permissions": [
+    "geolocation",
     "*://*.hko.gov.hk/*",
     "*://*.weather.com.cn/*"
   ]

@@ -13,6 +13,7 @@
   "dependencies": {
     "bounce.js": "^0.8.2",
     "cheerio": "^0.20.0",
+    "haversine": "^1.0.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "sprintf-js": "^1.0.3"
