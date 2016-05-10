@@ -1,0 +1,14 @@
+<svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <g transform="scale(1) translate(0 0)" stroke="#666" fill="#fb7" stroke-width="5">
+        <circle cx="50" cy="50" r="16.25" vector-effect="non-scaling-stroke" />
+        <line x1="72.500" y1="50.000" x2="85.000" y2="50.000" vector-effect="non-scaling-stroke" />
+        <line x1="65.910" y1="65.910" x2="74.749" y2="74.749" vector-effect="non-scaling-stroke" />
+        <line x1="50.000" y1="72.500" x2="50.000" y2="85.000" vector-effect="non-scaling-stroke" />
+        <line x1="34.090" y1="65.910" x2="25.251" y2="74.749" vector-effect="non-scaling-stroke" />
+        <line x1="27.500" y1="50.000" x2="15.000" y2="50.000" vector-effect="non-scaling-stroke" />
+        <line x1="34.090" y1="34.090" x2="25.251" y2="25.251" vector-effect="non-scaling-stroke" />
+        <line x1="50.000" y1="27.500" x2="50.000" y2="15.000" vector-effect="non-scaling-stroke" />
+        <line x1="65.910" y1="34.090" x2="74.749" y2="25.251" vector-effect="non-scaling-stroke" />
+    </g>
+    <path transform="scale(0.75) translate(0 37.5)" d="M62.5,50 A15.625,15.625 0 1,1 75,75 L25,75 A18.75,18.75 0 0,1 25,37.5 A18.75,18.75 0 0,0 28.193,37.774 A25,25 0 0,1 73.936,42.748" vector-effect="non-scaling-stroke" style="stroke: #666; fill: #fff; stroke-width: 5px;" />
+</svg>

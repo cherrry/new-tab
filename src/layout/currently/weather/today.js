@@ -8,8 +8,7 @@ import styles from './today.scss'
 class Today extends React.Component {
   static get propTypes() {
     return {
-      temp: React.PropTypes.number.isRequired,
-      icon: React.PropTypes.string
+      data: React.PropTypes.object.isRequired
     }
   }
 
@@ -30,10 +29,15 @@ class Today extends React.Component {
   }
 
   render() {
+    let { data } = this.props
+    let props = {}
+    if (data.icon) {
+      props.styleName = `${data.location}_${data.icon}`
+    }
     return (
       <div styleName="container">
-        <span style={{height: 150, width: 150, backgroundColor: '#aaa', display: 'inline-block'}} />
-        <div styleName="temp">{this.props.temp}</div>
+        <div style={{height: 150, width: 150, display: 'inline-block'}} {...props} />
+        <div styleName="temp">{data.temp}</div>
         <div styleName="now">Now</div>
       </div>
     )

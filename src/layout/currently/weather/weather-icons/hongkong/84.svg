@@ -1,0 +1,14 @@
+<svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="100" height="100" fill="#ade" />
+    <rect x="0" y="0" width="100" height="100" fill="#fff" fill-opacity="0.8" />
+    <g transform="scale(1) translate(0 0)" stroke="#666" fill="none" stroke-width="5">
+        <path stroke-width="0" fill="#ccc" d="M0,100 L0,90 L6,90 L6,55 L14,50 L14,55 L22,60 L22,90 L31,90 L31,64.5 L33.5,62 L44,62 L44,90 L53,90 L53,70 L56,67 L59,70 L63,70 L63,67 L74,67 L74,90 L82,90 L82,40 L84.5,37.5 L91.5,37.5 L94,40 L94,90 L100,90 L100,100 Z" vector-effect="non-scaling-stroke" />
+        <path d="M0,90 L6,90 L6,55 L14,50 L14,92.5" stroke-width="5" vector-effect="non-scaling-stroke" />
+        <path d="M14,55 L22,60 L22,90 L31,90 L31,64.5 L33.5,62 L44,62 L44,90 L53,90 L53,70 L56,67 L59,70 L63,70 L63,67 L74,67 L74,90 L82,90 L82,40 L84.5,37.5 L91.5,37.5 L94,40 L94,90 L100,90" stroke-width="5" vector-effect="non-scaling-stroke" />
+        <line x1="31" y1="74" x2="44" y2="74" vector-effect="non-scaling-stroke" />
+    </g>
+    <rect x="0" y="0" width="100" height="100" fill="#ade" fill-opacity="0.2" />
+    <rect x="0" y="0" width="100" height="100" fill="#fff" fill-opacity="0.2" />
+    <rect x="0" y="60" width="65" height="20" fill="#fff" fill-opacity="0.4" />
+    <rect x="40" y="67.5" width="65" height="20" fill="#fff" fill-opacity="0.5" />
+</svg>

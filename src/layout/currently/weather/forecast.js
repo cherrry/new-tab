@@ -13,9 +13,7 @@ class Forecast extends React.Component {
   static get propTypes() {
     return {
       dayOffset: React.PropTypes.number.isRequired,
-      minTemp: React.PropTypes.number.isRequired,
-      maxTemp: React.PropTypes.number.isRequired,
-      icon: React.PropTypes.string
+      data: React.PropTypes.object.isRequired
     }
   }
 
@@ -37,13 +35,18 @@ class Forecast extends React.Component {
   }
 
   render() {
+    let { data } = this.props
     let dt = new Date((+new Date()) + this.props.dayOffset * 86400 * 1000)
+    let props = {}
+    if (data.icon) {
+      props.styleName = `${data.location}_${data.icon}`
+    }
     return (
       <div styleName="container">
-        <span style={{height: 100, width: 100, backgroundColor: '#aaa', display: 'inline-block'}}></span>
+        <div style={{height: 100, width: 100, display: 'inline-block'}} {...props} />
         <div>
-          <span styleName="min-temp">{this.props.minTemp}</span>
-          <span styleName="max-temp">{this.props.maxTemp}</span>
+          <span styleName="min-temp">{data.minTemp}</span>
+          <span styleName="max-temp">{data.maxTemp}</span>
         </div>
         <div styleName="weekday">{weekday[dt.getDay()]}</div>
       </div>

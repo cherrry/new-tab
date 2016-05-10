@@ -12,15 +12,13 @@ class Weather extends React.Component {
 
     return (
       <div {...this.props} styleName="container">
-        <Today temp={today.temp} icon={today.icon} />
+        <Today data={today} />
         {Object.keys(forecast).sort().map(function (date, idx) {
           let data = forecast[date]
           return <Forecast
             key={date}
             dayOffset={idx+1}
-            minTemp={data.minTemp}
-            maxTemp={data.maxTemp}
-            icon={data.icon}
+            data={data}
           />
         })}
       </div>

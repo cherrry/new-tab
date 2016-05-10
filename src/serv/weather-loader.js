@@ -13,8 +13,7 @@ let load = function (location) {
       .where(weatherTable.location.eq(location))
       .exec()
       .then(function (rows) {
-        let { icon, temp } = rows[0]
-        return { icon, temp }
+        return rows[0]
       })
   })
 
@@ -38,9 +37,8 @@ let load = function (location) {
       .then(function (rows) {
         let result = {}
         rows.forEach(function (row) {
-          let { date, icon, minTemp, maxTemp } = row
-          let key = sprintf("%04d", date)
-          result[key] = { icon, minTemp, maxTemp }
+          let key = sprintf("%04d", row.date)
+          result[key] = row
         })
         return result
       })

@@ -1,0 +1,9 @@
+<svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <g transform="scale(1) translate(0 5)">
+        <path d="M43,9.375 L43,64.64 A12.5,12.5 0 0,0 50,87.5 A12.5,12.5 0 0,0 57,64.64 L57,9.375 A7,7 0 0,0 43,9.375 Z" stroke="#666" fill="none" stroke-width="5" vector-effect="non-scaling-stroke" />
+        <g stroke="#f33" fill="#f33" stroke-width="5">
+            <line x1="50" y1="17.5" x2="50" y2="75" />
+            <circle cx="50" cy="75" r="7.5" stroke-width="0" />
+        </g>
+    </g>
+</svg>

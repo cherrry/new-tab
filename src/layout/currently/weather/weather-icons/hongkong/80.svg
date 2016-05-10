@@ -1,0 +1,5 @@
+<svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <path transform="scale(0.4) translate(70 52)" d="M18.75,50 L81.25,50 A 12.5 12.5 0 1 0 72.41 28.66" vector-effect="non-scaling-stroke" style="stroke: #666; stroke-width: 5; fill: none;" />
+    <path transform="scale(1) translate(0 0)" d="M18.75,50 L81.25,50 A 12.5 12.5 0 1 0 72.41 28.66" vector-effect="non-scaling-stroke" style="stroke: #666; stroke-width: 5; fill: none;" />
+    <path transform="scale(0.7 -0.7) translate(27 -135)" d="M18.75,50 L81.25,50 A 12.5 12.5 0 1 0 72.41 28.66" vector-effect="non-scaling-stroke" style="stroke: #666; stroke-width: 5; fill: none;" />
+</svg>
