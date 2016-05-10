@@ -16,8 +16,8 @@ let today = function () {
       let iconText = text.match(reIcon)[1]
 
       return {
+        icon: iconText,
         temp: parseInt(tempText),
-        icon: iconText
       }
     })
 }
@@ -42,10 +42,8 @@ let forecast = function () {
           let key = sprintf("%02d%02d", parseInt(month), parseInt(day))
           result[key] = {
             icon: iconText,
-            temp: {
-              min: parseInt(tempMin),
-              max: parseInt(tempMax)
-            }
+            minTemp: parseInt(tempMin),
+            maxTemp: parseInt(tempMax)
           }
         })
       })

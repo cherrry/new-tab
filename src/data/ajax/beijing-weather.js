@@ -18,6 +18,7 @@ let today = function () {
       })
 
       return {
+        icon: null,
         temp: parseInt(tempDom.text().match(reTemp)[1])
       }
     })
@@ -46,10 +47,9 @@ let forecast = function () {
 
         let key = sprintf("%02d%02d", month + 1 /* what ? */, day)
         result[key] = {
-          temp: {
-            min: parseInt($('span', tempDom).text().replace(reTemp, '$1')),
-            max: parseInt($('i', tempDom).text().replace(reTemp, '$1'))
-          }
+          icon: null,
+          minTemp: parseInt($('span', tempDom).text().replace(reTemp, '$1')),
+          maxTemp: parseInt($('i', tempDom).text().replace(reTemp, '$1'))
         }
       })
 
