@@ -4,9 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 export default {
   entry: {
     index: 'index',
-    background: 'background',
-    react: ['react', 'react-css-modules', 'react-dom'],
-    libs: ['bounce.js', 'cheerio', 'haversine', 'lovefield', 'sprintf-js'],
+    background: 'background'
   },
   output: {
     filename: '[name].js',
@@ -30,7 +28,7 @@ export default {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(['react', 'libs'], '[name].js'),
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
     new ExtractTextPlugin('style.css', { allChunks: true })
   ]
 }

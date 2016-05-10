@@ -1,3 +1,5 @@
+import closestLocation from './closest-location'
+
 let update = function () {
   closestLocation().then(function (location) {
     localStorage.setItem('current_location', location)
@@ -5,4 +7,4 @@ let update = function () {
   })
 }
 
-export default { update }
+export default update

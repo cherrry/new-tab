@@ -12,7 +12,7 @@
   ],
   "background": {
     "scripts": [
-      "dist/libs.js",
+      "dist/common.js",
       "dist/background.js"
     ]
   }
