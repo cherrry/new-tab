@@ -27,11 +27,7 @@ let load = function (location) {
       return parseInt(sprintf("%d%02d", date.getMonth() + 1, date.getDate()))
     })
 
-    console.log(dates)
-
     let forecastTable = db.getSchema().table('Forecast')
-    console.log(forecastTable)
-
     return db.select()
       .from(forecastTable)
       .where(lf.op.and(

@@ -8,13 +8,21 @@ import Forecast from './weather/forecast'
 
 class Weather extends React.Component {
   render() {
+    let { today, forecast } = this.props
+
     return (
       <div {...this.props} styleName="container">
-        <Today />
-        <Forecast delay={1} />
-        <Forecast delay={2} />
-        <Forecast delay={3} />
-        <Forecast delay={4} />
+        <Today temp={today.temp} icon={today.icon} />
+        {Object.keys(forecast).sort().map(function (date, idx) {
+          let data = forecast[date]
+          return <Forecast
+            key={date}
+            dayOffset={idx+1}
+            minTemp={data.minTemp}
+            maxTemp={data.maxTemp}
+            icon={data.icon}
+          />
+        })}
       </div>
     )
   }

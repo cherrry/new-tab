@@ -5,16 +5,23 @@ import Bounce from 'bounce.js'
 
 import styles from './forecast.scss'
 
+let weekday = [
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+]
+
 class Forecast extends React.Component {
   static get propTypes() {
     return {
-      delay: React.PropTypes.number.isRequired
+      dayOffset: React.PropTypes.number.isRequired,
+      minTemp: React.PropTypes.number.isRequired,
+      maxTemp: React.PropTypes.number.isRequired,
+      icon: React.PropTypes.string
     }
   }
 
   componentDidMount() {
     let elem = ReactDom.findDOMNode(this)
-    let delay = this.props.delay
+    let delay = this.props.dayOffset
     new Bounce()
     .translate({
       from: { x: 0, y: 48 },
@@ -30,14 +37,15 @@ class Forecast extends React.Component {
   }
 
   render() {
+    let dt = new Date((+new Date()) + this.props.dayOffset * 86400 * 1000)
     return (
       <div styleName="container">
         <span style={{height: 100, width: 100, backgroundColor: '#aaa', display: 'inline-block'}}></span>
         <div>
-          <span styleName="min-temp">27</span>
-          <span styleName="max-temp">31</span>
+          <span styleName="min-temp">{this.props.minTemp}</span>
+          <span styleName="max-temp">{this.props.maxTemp}</span>
         </div>
-        <div styleName="weekday">Monday</div>
+        <div styleName="weekday">{weekday[dt.getDay()]}</div>
       </div>
     )
   }

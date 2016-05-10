@@ -48,8 +48,8 @@ let forecast = function () {
         let key = sprintf("%02d%02d", month + 1 /* what ? */, day)
         result[key] = {
           icon: null,
-          minTemp: parseInt($('span', tempDom).text().replace(reTemp, '$1')),
-          maxTemp: parseInt($('i', tempDom).text().replace(reTemp, '$1'))
+          minTemp: parseInt($('i', tempDom).text().replace(reTemp, '$1')),
+          maxTemp: parseInt($('span', tempDom).text().replace(reTemp, '$1'))
         }
       })
 

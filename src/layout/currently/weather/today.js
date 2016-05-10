@@ -6,6 +6,13 @@ import Bounce from 'bounce.js'
 import styles from './today.scss'
 
 class Today extends React.Component {
+  static get propTypes() {
+    return {
+      temp: React.PropTypes.number.isRequired,
+      icon: React.PropTypes.string
+    }
+  }
+
   componentDidMount() {
     let elem = ReactDom.findDOMNode(this)
     new Bounce()
@@ -25,8 +32,8 @@ class Today extends React.Component {
   render() {
     return (
       <div styleName="container">
-        <span style={{height: 150, width: 150, backgroundColor: '#aaa', display: 'inline-block'}}></span>
-        <div styleName="temp">29</div>
+        <span style={{height: 150, width: 150, backgroundColor: '#aaa', display: 'inline-block'}} />
+        <div styleName="temp">{this.props.temp}</div>
         <div styleName="now">Now</div>
       </div>
     )

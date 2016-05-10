@@ -1,7 +1,8 @@
 let add = function (initialDelay, interval, failureDelay, callback) {
   let timeout
+
   let job = function () {
-    callback().then(function () {
+    Promise.resolve(callback()).then(function () {
       timeout = setTimeout(job, interval)
     }, function () {
       timeout = setTimeout(job, failureDelay)

@@ -4,8 +4,15 @@ import CSSModules from 'react-css-modules'
 
 import './index.scss'
 
+import loadLocation from './serv/location-loader'
+import loadWeather from './serv/weather-loader'
+
 import Currently from './layout/currently'
 import Settings from './layout/settings'
 
-ReactDom.render(<Currently />, document.getElementById('currently'))
 ReactDom.render(<Settings />, document.getElementById('settings'))
+
+loadWeather(loadLocation())
+  .then(function (weather) {
+    ReactDom.render(<Currently weather={weather} />, document.getElementById('currently'))
+  })
