@@ -1,10 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "New Tab Replacement v2",
+  "name": "New Tab Replacement",
   "description": "Personalized new tab page for Chrome.",
   "version": "2.0.0",
   "offline_enabled": true,
-  "options_page": "index.html",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
   "permissions": [
     "geolocation",
     "*://*.hko.gov.hk/*",
