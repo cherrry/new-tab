@@ -14,7 +14,9 @@ export default {
   resolve: {
     root: __dirname + '/src',
     alias: {
+      actions: __dirname + '/src/actions',
       db: __dirname + '/src/data/db',
+      miniflux: __dirname + '/src/miniflux',
       bower: __dirname + '/bower_components',
       icon: __dirname + '/src/icon/icon.scss'
     }
