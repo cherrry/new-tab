@@ -12,8 +12,10 @@ class Currently extends React.Component {
 
     return (
       <div {...this.props} styleName="container">
-        <Datetime />
-        <Weather today={weather.today} forecast={weather.forecast} />
+        <div styleName="main">
+          <Datetime />
+          <Weather today={weather.today} forecast={weather.forecast} />
+        </div>
       </div>
     )
   }
