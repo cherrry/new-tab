@@ -12,12 +12,8 @@ schema.createTable('Weather')
   .addColumn('location', lf.Type.STRING)
   .addColumn('temp', lf.Type.INTEGER)
   .addColumn('icon', lf.Type.STRING)
-  .addUnique('u_location', ['location'])
-  .addForeignKey('fk_location', {
-    local: 'location',
-    ref: 'Location.name',
-    action: lf.ConstraintAction.CASCADE
-  })
+  .addNullable(['icon'])
+  .addPrimaryKey(['location'])
 
 schema.createTable('Forecast')
   .addColumn('location', lf.Type.STRING)
@@ -26,11 +22,6 @@ schema.createTable('Forecast')
   .addColumn('maxTemp', lf.Type.INTEGER)
   .addColumn('icon', lf.Type.STRING)
   .addNullable(['icon'])
-  .addUnique('u_location_date', ['location', 'date'])
-  .addForeignKey('fk_location', {
-    local: 'location',
-    ref: 'Location.name',
-    action: lf.ConstraintAction.CASCADE
-  })
+  .addPrimaryKey(['location', 'date'])
 
 export default schema

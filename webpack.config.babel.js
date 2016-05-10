@@ -35,7 +35,7 @@ export default [
   {
     entry: {
       background: 'background',
-      vendor: ['lovefield']
+      vendor: ['lovefield', 'cheerio']
     },
     output: {
       filename: '[name].js',
@@ -50,7 +50,8 @@ export default [
     },
     module: {
       loaders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
+        { test: /\.json$/, loader: 'json' }
       ]
     },
     plugins: [
