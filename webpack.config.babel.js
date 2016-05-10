@@ -5,8 +5,8 @@ export default {
   entry: {
     index: 'index',
     background: 'background',
-    react: ['react', 'react-dom', 'react-css-modules'],
-    libs: ['cheerio', 'lovefield']
+    react: ['react', 'react-css-modules', 'react-dom'],
+    libs: ['bounce.js', 'cheerio', 'haversine', 'lovefield', 'sprintf-js']
   },
   output: {
     filename: '[name].js',
