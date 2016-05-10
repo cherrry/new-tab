@@ -9,5 +9,8 @@
     "geolocation",
     "*://*.hko.gov.hk/*",
     "*://*.weather.com.cn/*"
-  ]
+  ],
+  "background": {
+    "scripts": ["dist/serv/background.js"]
+  }
 }
