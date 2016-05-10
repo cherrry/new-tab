@@ -11,6 +11,9 @@
     "*://*.weather.com.cn/*"
   ],
   "background": {
-    "scripts": ["dist/serv/background.js"]
+    "scripts": [
+      "dist/serv/vendor.js",
+      "dist/serv/background.js"
+    ]
   }
 }
