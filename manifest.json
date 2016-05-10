@@ -12,8 +12,8 @@
   ],
   "background": {
     "scripts": [
-      "dist/serv/vendor.js",
-      "dist/serv/background.js"
+      "dist/libs.js",
+      "dist/background.js"
     ]
   }
 }
