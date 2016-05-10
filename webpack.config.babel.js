@@ -43,7 +43,10 @@ export default [
       publicPath: '/dist/serv'
     },
     resolve: {
-      root: __dirname + '/src'
+      root: __dirname + '/src',
+      alias: {
+        db: __dirname + '/src/data/db'
+      }
     },
     module: {
       loaders: [
