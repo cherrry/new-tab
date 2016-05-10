@@ -23,20 +23,17 @@ let update = function (location, ajax) {
         .into(forecastTable)
         .values(Object.keys(forecast).map(function (date) {
           let data = forecast[date]
-          let x = forecastTable.createRow({
+          return forecastTable.createRow({
             location,
             date: parseInt(date.replace(/^0+/, '')),
             icon: data.icon,
             minTemp: data.minTemp,
             maxTemp: data.maxTemp
           })
-          console.log(x)
-          return x
         }))
         .exec()
 
       return Promise.all([weatherUpdate, forecastUpdate]).then(function (values) {
-        console.log(values)
         return true
       })
     })
