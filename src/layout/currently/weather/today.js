@@ -32,11 +32,11 @@ class Today extends React.Component {
     let { data } = this.props
     let props = {}
     if (data.icon) {
-      props.styleName = `${data.location}_${data.icon}`
+      props.className = `${data.location}_${data.icon}`
     }
     return (
       <div styleName="container">
-        <div style={{height: 150, width: 150, display: 'inline-block'}} {...props} />
+        <div styleName="icon-block" {...props} />
         <div styleName="temp">{data.temp}</div>
         <div styleName="now">Now</div>
       </div>

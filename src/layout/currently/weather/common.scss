@@ -5,3 +5,9 @@
   width: 12.5%;
   font-weight: 600;
 }
+
+@mixin icon($size) {
+  height: #{$size}px;
+  width: #{$size}px;
+  display: inline-block;
+}

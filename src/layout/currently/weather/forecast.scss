@@ -19,3 +19,7 @@
   font-size: .825em;
   color: #666;
 }
+
+.icon-block {
+  @include icon(100);
+}

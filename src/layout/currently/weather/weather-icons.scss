@@ -1,1 +1,3 @@
-@import "./weather-icons/hongkong.scss";
+:global {
+  @import "./weather-icons/hongkong.scss";
+}

@@ -8,3 +8,7 @@
 .now {
   font-size: 1em;
 }
+
+.icon-block {
+  @include icon(150);
+}

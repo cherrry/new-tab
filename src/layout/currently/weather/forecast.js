@@ -39,11 +39,11 @@ class Forecast extends React.Component {
     let dt = new Date((+new Date()) + this.props.dayOffset * 86400 * 1000)
     let props = {}
     if (data.icon) {
-      props.styleName = `${data.location}_${data.icon}`
+      props.className = `${data.location}_${data.icon}`
     }
     return (
       <div styleName="container">
-        <div style={{height: 100, width: 100, display: 'inline-block'}} {...props} />
+        <div styleName="icon-block" {...props} />
         <div>
           <span styleName="min-temp">{data.minTemp}</span>
           <span styleName="max-temp">{data.maxTemp}</span>
