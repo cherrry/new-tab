@@ -1,18 +1,21 @@
 import webpack from 'webpack'
+
+import CopyPlugin from 'copy-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
+  context: __dirname,
   entry: {
-    index: 'index',
-    background: 'background'
+    index: 'src/index',
+    background: 'src/background'
   },
   output: {
-    filename: '[name].js',
+    filename: 'assets/[name].js',
     path: __dirname + '/dist',
     publicPath: '/dist'
   },
   resolve: {
-    root: __dirname + '/src',
+    root: __dirname,
     alias: {
       actions: __dirname + '/src/actions',
       db: __dirname + '/src/data/db',
@@ -30,7 +33,11 @@ export default {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new ExtractTextPlugin('style.css', { allChunks: true })
+    new webpack.optimize.CommonsChunkPlugin('assets/common.js'),
+    new ExtractTextPlugin('assets/[name].css'),
+    new CopyPlugin([
+      { from: 'index.html' },
+      { from: 'manifest.json' }
+    ])
   ]
 }
