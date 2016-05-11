@@ -1,11 +1,6 @@
 @font-face {
   font-family: 'icon';
-  src: url('./icon.eot');
-  src: url('./icon.eot#iefix') format('embedded-opentype'),
-       url('./icon.woff2') format('woff2'),
-       url('./icon.woff') format('woff'),
-       url('./icon.ttf') format('truetype'),
-       url('./icon.svg?#icon') format('svg');
+  src: url('./icon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
