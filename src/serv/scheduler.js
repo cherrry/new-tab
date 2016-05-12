@@ -1,4 +1,4 @@
-let add = function (initialDelay, interval, failureDelay, callback) {
+export function add(initialDelay, interval, failureDelay, callback) {
   let timeout
 
   let job = function () {

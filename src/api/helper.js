@@ -65,3 +65,8 @@ export function createServer() {
 
   return server
 }
+
+export default {
+  createClient,
+  createServer
+}
