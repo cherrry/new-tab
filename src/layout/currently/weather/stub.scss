@@ -1,0 +1,17 @@
+@import "./common.scss";
+
+.container {
+  opacity: 0;
+}
+
+.temp {
+  font-size: 3em;
+}
+
+.now {
+  font-size: 1em;
+}
+
+.icon-block {
+  @include icon(150);
+}
