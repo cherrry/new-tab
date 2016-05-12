@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import Bounce from 'bounce.js'
 
-import { WeatherActions } from 'actions/weather-actions'
+import { WeatherActions } from 'app/store/weather'
 
 class Refresh extends React.Component {
   componentDidMount() {

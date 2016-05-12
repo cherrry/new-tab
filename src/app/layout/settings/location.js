@@ -1,8 +1,8 @@
+import 'icon'
+
 import React from 'react'
 import ReactDom from 'react-dom'
 import Bounce from 'bounce.js'
-
-import 'icon'
 
 class Location extends React.Component {
   componentDidMount() {

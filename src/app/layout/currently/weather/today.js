@@ -1,9 +1,10 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import CSSModules from 'react-css-modules'
-import Bounce from 'bounce.js'
-
 import styles from './today.scss'
+
+import React from 'react'
+import { findDOMNode } from 'react-dom'
+import CSSModules from 'react-css-modules'
+
+import Bounce from 'bounce.js'
 
 class Today extends React.Component {
   static get propTypes() {
@@ -13,7 +14,7 @@ class Today extends React.Component {
   }
 
   componentDidMount() {
-    let elem = ReactDom.findDOMNode(this)
+    let elem = findDOMNode(this)
     new Bounce()
       .translate({
         from: { x: 0, y: 32 },

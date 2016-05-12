@@ -1,9 +1,10 @@
+import styles from './forecast.scss'
+
 import React from 'react'
 import ReactDom from 'react-dom'
 import CSSModules from 'react-css-modules'
-import Bounce from 'bounce.js'
 
-import styles from './forecast.scss'
+import Bounce from 'bounce.js'
 
 let weekday = [
   "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"

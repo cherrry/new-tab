@@ -17,6 +17,9 @@ export default {
   resolve: {
     root: __dirname,
     alias: {
+      app: __dirname + '/src/app',
+      serv: __dirname + '/src/serv',
+
       actions: __dirname + '/src/actions',
       api: __dirname + '/src/api',
       db: __dirname + '/src/data/db',

@@ -1,13 +1,13 @@
+import styles from './weather.scss'
+
 import React from 'react'
 import CSSModules from 'react-css-modules'
 
-import styles from './weather.scss'
+import { WeatherActions, WeatherStore } from 'app/store/weather'
 
 import Stub from './weather/stub'
 import Today from './weather/today'
 import Forecast from './weather/forecast'
-
-import { WeatherActions, WeatherStore } from 'actions/weather-actions'
 
 let stub = <Stub />
 

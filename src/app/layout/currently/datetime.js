@@ -1,10 +1,11 @@
+import styles from './datetime.scss'
+
 import React from 'react'
-import ReactDom from 'react-dom'
+import { findDOMNode } from 'react-dom'
 import CSSModules from 'react-css-modules'
+
 import Bounce from 'bounce.js'
 import { sprintf } from 'sprintf-js'
-
-import styles from './datetime.scss'
 
 import TimeFormat from './datetime/time-format'
 
@@ -41,7 +42,7 @@ let dateFormat = function (dt) {
 
 class Datetime extends React.Component {
   componentDidMount() {
-    let elem = ReactDom.findDOMNode(this)
+    let elem = findDOMNode(this)
     new Bounce()
       .translate({
         from: { x: 0, y: -128 },
