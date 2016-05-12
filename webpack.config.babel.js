@@ -6,8 +6,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 export default {
   context: __dirname,
   entry: {
-    index: 'src/index',
-    background: 'src/background'
+    app: 'src/app',
+    serv: 'src/serv'
   },
   output: {
     filename: 'assets/[name].js',
@@ -36,7 +36,7 @@ export default {
     new webpack.optimize.CommonsChunkPlugin('assets/common.js'),
     new ExtractTextPlugin('assets/[name].css'),
     new CopyPlugin([
-      { from: 'index.html' },
+      { from: 'app.html' },
       { from: 'manifest.json' }
     ])
   ]

@@ -5,7 +5,7 @@
   "version": "2.0.0",
   "offline_enabled": true,
   "chrome_url_overrides": {
-    "newtab": "index.html"
+    "newtab": "app.html"
   },
   "permissions": [
     "geolocation",
@@ -15,7 +15,7 @@
   "background": {
     "scripts": [
       "assets/common.js",
-      "assets/background.js"
+      "assets/serv.js"
     ]
   }
 }
