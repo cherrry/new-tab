@@ -12,8 +12,10 @@ export function actionsStore(storeConfig) {
   // bind dispatcher
   dispatcher.register(function (payload) {
     if (payload.id === id && storeConfig.hasOwnProperty(payload.action)) {
-      storeConfig[payload.action].apply(storeConfig, payload.arguments)
-      event.emit(id, storeConfig.getState())
+      Promise.resolve(storeConfig[payload.action].apply(storeConfig, payload.arguments))
+        .then(function () {
+          event.emit(id, storeConfig.getState())
+        })
     }
   })
 

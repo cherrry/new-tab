@@ -18,6 +18,7 @@ export default {
     root: __dirname,
     alias: {
       actions: __dirname + '/src/actions',
+      api: __dirname + '/src/api',
       db: __dirname + '/src/data/db',
       miniflux: __dirname + '/src/miniflux',
       bower: __dirname + '/bower_components',

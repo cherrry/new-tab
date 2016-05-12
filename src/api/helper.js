@@ -1,10 +1,15 @@
 export function createClient(actionNames) {
   let client = {}
 
-  actionNames.foreach(function (action) {
+  actionNames.forEach(function (action) {
     client[action] = function () {
+      let args = []
+      for (let i = 0; i < arguments.length; i++) {
+        args.push(arguments[i])
+      }
+
       return new Promise(function (resolve, reject) {
-        chrome.runtime.sendMessage({ action, arguments }, function (response) {
+        chrome.runtime.sendMessage({ action, args }, function (response) {
           if (response.ok) {
             resolve(response.result)
           } else {
@@ -19,14 +24,16 @@ export function createClient(actionNames) {
 }
 
 export function createServer() {
-  let serverConfigs = {}
+  let messageHandlers = {}
 
   let messageListener = function (message, sender, sendResponse) {
-    let { action, arguments } = message
+    console.log(message, messageHandlers)
 
-    if (serverConfigs.hasOwnProperty(action)) {
-      let handler = serverConfigs[action]
-      Promise.resolve(handler.apply(null, arguments))
+    let { action, args } = message
+
+    if (messageHandlers.hasOwnProperty(action)) {
+      let handler = messageHandlers[action]
+      Promise.resolve(handler.apply(null, args))
         .then(function (result) {
           sendResponse({ ok: true, result })
         }, function (error) {
@@ -41,20 +48,22 @@ export function createServer() {
   }
 
   let server = {
-    addConfig(serverConfig) {
-      Object.keys(serverConfig)
-        .filter((action) => clientConfig.hasOwnProperty(action))
-        .foreach(function (action) {
-          if (serverConfig.hasOwnProperty(action)) {
-            throw new Error("Message handler already exist for " + action ".")
+    addHandler(messageHandler) {
+      Object.keys(messageHandler)
+        .filter((action) => messageHandler.hasOwnProperty(action))
+        .forEach(function (action) {
+          if (messageHandlers.hasOwnProperty(action)) {
+            throw new Error("Message handler already exist for " + action + ".")
           }
-          serverConfigs[action] = serverConfig[action]
+          messageHandlers[action] = messageHandler[action]
         })
       return server
     },
 
     run() {
-      chrome.runtime.onMessage.addListener(function ())
+      chrome.runtime.onMessage.addListener(messageListener)
     }
   }
+
+  return server
 }

@@ -29,10 +29,10 @@ class Today extends React.Component {
   }
 
   render() {
-    let { data } = this.props
+    let { location, data } = this.props
     let props = {}
     if (data.icon) {
-      props.className = `${data.location}_${data.icon}`
+      props.className = `${location}_${data.icon}`
     }
     return (
       <div styleName="container">

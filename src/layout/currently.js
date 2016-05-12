@@ -8,13 +8,11 @@ import Weather from './currently/weather'
 
 class Currently extends React.Component {
   render() {
-    let { weather } = this.props
-
     return (
       <div styleName="container">
         <div styleName="main">
           <Datetime />
-          <Weather today={weather.today} forecast={weather.forecast} />
+          <Weather />
         </div>
       </div>
     )

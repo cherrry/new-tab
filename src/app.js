@@ -11,10 +11,6 @@ import Currently from './layout/currently'
 import Settings from './layout/settings'
 
 ReactDom.render(<Settings />, document.getElementById('settings'))
-
-loadWeather(loadLocation())
-  .then(function (weather) {
-    ReactDom.render(<Currently weather={weather} />, document.getElementById('currently'))
-  })
+ReactDom.render(<Currently />, document.getElementById('currently'))
 
 import { WeatherActions } from 'actions/weather-actions'

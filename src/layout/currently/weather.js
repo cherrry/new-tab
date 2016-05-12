@@ -29,16 +29,17 @@ class Weather extends React.Component {
   }
 
   render() {
-    let { today, forecast } = this.props
-
     let content = <Stub />
+
     if (this.state) {
+      let { location, weather } = this.state
       content = [
-        <Today key="today" data={today} />
-      ].concat(Object.keys(forecast).sort().map(function (date, idx) {
-        let data = forecast[date]
-        return <Forecast key={date} dayOffset={idx+1} data={data} />
-      }))
+        <Today key="today" location={location} data={weather.today} />
+      ].concat(
+        weather.forecast.map(function (data, idx) {
+          return <Forecast key={idx} dayOffset={idx+1} location={location} data={data} />
+        })
+      )
     }
 
     return <div styleName="container">{content}</div>
