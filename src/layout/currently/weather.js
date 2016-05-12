@@ -9,6 +9,8 @@ import Forecast from './weather/forecast'
 
 import { WeatherActions, WeatherStore } from 'actions/weather-actions'
 
+let stub = <Stub />
+
 class Weather extends React.Component {
   constructor() {
     super()
@@ -25,19 +27,19 @@ class Weather extends React.Component {
   }
 
   updateDisplay = (state) => {
-    this.setState(state)
+    this.setState(state.weather)
   }
 
   render() {
-    let content = <Stub />
+    let content = stub
 
     if (this.state) {
-      let { location, weather } = this.state
+      let { today, forecast } = this.state
       content = [
-        <Today key="today" location={location} data={weather.today} />
+        <Today key="today" data={today} />
       ].concat(
-        weather.forecast.map(function (data, idx) {
-          return <Forecast key={idx} dayOffset={idx+1} location={location} data={data} />
+        forecast.map(function (data, idx) {
+          return <Forecast key={idx} dayOffset={idx+1} data={data} />
         })
       )
     }

@@ -35,11 +35,11 @@ class Forecast extends React.Component {
   }
 
   render() {
-    let { location, data } = this.props
+    let { data } = this.props
     let dt = new Date((+new Date()) + this.props.dayOffset * 86400 * 1000)
     let props = {}
     if (data.icon) {
-      props.className = `${location}_${data.icon}`
+      props.className = `${data.location}_${data.icon}`
     }
     return (
       <div styleName="container">
