@@ -2,15 +2,18 @@ import { actionsStore } from './helper'
 
 import weatherApi from 'api/app/weather-app'
 
-let data = null
+let location = localStorage.getItem('current_location')
+let weather = null
 
 let as = actionsStore({
-  getState() { return data },
+  getState() {
+    return { location, weather }
+  },
 
   refresh() {
-    return weatherApi.refresh()
-      .then(function (newData) {
-        data = newData
+    return weatherApi.refresh(location)
+      .then(function (newWeather) {
+        weather = newWeather
       })
   }
 })

@@ -34,14 +34,6 @@ let load = function (location) {
         forecastTable.date.in(dates)
       ))
       .exec()
-      .then(function (rows) {
-        let result = {}
-        rows.forEach(function (row) {
-          let key = sprintf("%04d", row.date)
-          result[key] = row
-        })
-        return result
-      })
   })
 
   return Promise.all([today, forecast])

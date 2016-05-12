@@ -27,8 +27,6 @@ export function createServer() {
   let messageHandlers = {}
 
   let messageListener = function (message, sender, sendResponse) {
-    console.log(message, messageHandlers)
-
     let { action, args } = message
 
     if (messageHandlers.hasOwnProperty(action)) {
