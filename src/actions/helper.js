@@ -4,10 +4,13 @@ import { Dispatcher } from 'flux'
 import { v4 as uuid } from 'node-uuid'
 
 let dispatcher = new Dispatcher()
+let event = new Event()
 
 export function actionsStore(storeConfig) {
   let id = uuid()
-  let dispatcherIdx = dispatcher.register(function (payload) {
+
+  // bind dispatcher
+  dispatcher.register(function (payload) {
     if (payload.id === id && storeConfig.hasOwnProperty(payload.action)) {
       storeConfig[payload.action].apply(storeConfig, payload.arguments)
       event.emit(id, storeConfig.getState())
@@ -18,7 +21,7 @@ export function actionsStore(storeConfig) {
   let actions = {}
   Object.keys(storeConfig)
     .filter((action) => storeConfig.hasOwnProperty(action) && action !== 'getState')
-    .foreach(function (action) {
+    .forEach(function (action) {
       actions[action] = function () {
         dispatcher.dispatch({ id, action, arguments })
       }

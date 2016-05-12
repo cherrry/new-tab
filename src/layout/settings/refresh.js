@@ -1,8 +1,10 @@
+import 'icon'
+
 import React from 'react'
 import ReactDom from 'react-dom'
 import Bounce from 'bounce.js'
 
-import 'icon'
+import { WeatherActions } from 'actions/weather-actions'
 
 class Refresh extends React.Component {
   componentDidMount() {
@@ -21,9 +23,13 @@ class Refresh extends React.Component {
       .applyTo(elem, { remove: true })
   }
 
+  refresh = () => {
+    WeatherActions.refresh()
+  }
+
   render() {
     return (
-      <li {...this.props}><i className="icon-refresh" /></li>
+      <li {...this.props}><i className="icon-refresh" onClick={this.refresh} /></li>
     )
   }
 }

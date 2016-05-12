@@ -11,7 +11,7 @@ class Currently extends React.Component {
     let { weather } = this.props
 
     return (
-      <div {...this.props} styleName="container">
+      <div styleName="container">
         <div styleName="main">
           <Datetime />
           <Weather today={weather.today} forecast={weather.forecast} />

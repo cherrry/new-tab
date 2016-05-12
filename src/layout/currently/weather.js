@@ -6,7 +6,27 @@ import styles from './weather.scss'
 import Today from './weather/today'
 import Forecast from './weather/forecast'
 
+import { WeatherActions, WeatherStore } from 'actions/weather-actions'
+
 class Weather extends React.Component {
+  constructor() {
+    super()
+    this.state = null
+  }
+
+  componentDidMount() {
+    WeatherStore.subscribe(this.updateDisplay)
+    WeatherActions.refresh()
+  }
+
+  componentWillUnmount() {
+    WeatherStore.unsubscribe(this.updateDisplay)
+  }
+
+  updateDisplay = (state) => {
+    this.setState(state)
+  }
+
   render() {
     let { today, forecast } = this.props
 

@@ -16,3 +16,5 @@ loadWeather(loadLocation())
   .then(function (weather) {
     ReactDom.render(<Currently weather={weather} />, document.getElementById('currently'))
   })
+
+import { WeatherActions } from 'actions/weather-actions'
