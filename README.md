@@ -2,13 +2,28 @@
 
 Personalized new tab page for chrome.
 
-# Features
+## Install
 
-## Clock
+### Build from Source
+
+```
+$ npm install && bower install
+$ npm run build
+```
+
+### Load Extension
+
+1. Go to [Chrome Extensions](chrome://extensions/)
+2. Enable "Developer Mode"
+3. Load unpacked extension from `dist/` folder.
+
+## Features
+
+### Clock
 
 - Display my preferred date time format
 
-## Weather Data
+### Weather Data
 
 - Fetch weather data from official source
   - [Hong Kong Observatory](http://www.hko.gov.hk)
