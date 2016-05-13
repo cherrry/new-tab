@@ -57,14 +57,14 @@ let forecast = function () {
     })
 }
 
-export default function () {
-  return Promise.all([
-    today(),
-    forecast()
-  ]).then(function (values) {
-    return {
-      today: values[0],
-      forecast: values[1]
-    }
-  })
+export function beijingWeatherAjax() {
+  return Promise.all([today(), forecast()])
+    .then(function (values) {
+      return {
+        today: values[0],
+        forecast: values[1]
+      }
+    })
 }
+
+export default { beijingWeatherAjax }

@@ -84,9 +84,17 @@ export function setForecasts(location, forecasts) {
   })
 }
 
+export function setWeatherData(location, { today, forecast }) {
+  return Promise.all([
+    setTodayWeather(location, today),
+    setForecasts(location, forecast)
+  ])
+}
+
 export default {
   todayWeather,
   setTodayWeather,
   fourDaysForecast,
-  setForecasts
+  setForecasts,
+  setWeatherData
 }

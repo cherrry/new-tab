@@ -3,7 +3,7 @@ import { sprintf } from 'sprintf-js'
 
 import htmlSource from './html-source'
 
-let today = function () {
+function today() {
   let reTemp = /Air\s+Temperature\s*:\s*(-?\d+)/i
   let reIcon = /Weather\s+Cartoon\s*:\s+No\.\s+(\d+)/i
 
@@ -22,7 +22,7 @@ let today = function () {
     })
 }
 
-let forecast = function () {
+function forecast() {
   let reTemp = /Date\/Month\s*(\d+)\/(\d+)[\s\S]*?Temp\s+Range\s*:\s*(-?\d+)\s*-\s*(-?\d+)/gi
   let reIcon = function (idx) {
     return new RegExp(`Day\\s+${idx+1}\\s+cartoon\\s+no\\.\\s+(\\d+)`)
@@ -52,14 +52,14 @@ let forecast = function () {
     })
 }
 
-export default function () {
-  return Promise.all([
-    today(),
-    forecast()
-  ]).then(function (values) {
-    return {
-      today: values[0],
-      forecast: values[1]
-    }
-  })
+export function hongkongWeatherAjax() {
+  return Promise.all([today(), forecast()])
+    .then(function (values) {
+      return {
+        today: values[0],
+        forecast: values[1]
+      }
+    })
 }
+
+export default { hongkongWeatherAjax }
