@@ -19,13 +19,8 @@ export default {
     alias: {
       app: __dirname + '/src/app',
       serv: __dirname + '/src/serv',
-
-      apputil: __dirname + '/src/apputil',
-
-      actions: __dirname + '/src/actions',
       api: __dirname + '/src/api',
-      db: __dirname + '/src/data/db',
-      miniflux: __dirname + '/src/miniflux',
+
       bower: __dirname + '/bower_components',
       icon: __dirname + '/src/icon/icon.scss'
     }

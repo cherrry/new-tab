@@ -1,4 +1,4 @@
-import connection from 'db/connection'
+import { allLocations } from 'serv/serv/location-serv'
 
 import hongKongWeather from './../data/ajax/hongkong-weather'
 import beijingWeather from './../data/ajax/beijing-weather'
@@ -10,15 +10,10 @@ let ajaxUpdater = {
 }
 
 let locations = function () {
-  return connection.then(function (db) {
-    return db.select()
-      .from(db.getSchema().table('Location'))
-      .exec()
-      .then(function (locations) {
-        return locations.map(function (location) {
-          return location.name
-        })
-      })
+  return allLocations().then(function (locations) {
+    return locations.map(function (location) {
+      return location.name
+    })
   })
 }
 

@@ -27,6 +27,9 @@ export function currentLocation() {
     })
 }
 
+export { allLocations }
+
 export default {
+  allLocations,
   currentLocation
 }
