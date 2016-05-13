@@ -1,7 +1,7 @@
-import loadWeather from './../../serv/weather-loader'
+import { weatherData } from 'serv/serv/weather-serv'
 
 export default {
   refresh(location) {
-    return loadWeather(location)
+    return weatherData(location)
   }
 }

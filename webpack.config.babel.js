@@ -20,6 +20,8 @@ export default {
       app: __dirname + '/src/app',
       serv: __dirname + '/src/serv',
 
+      apputil: __dirname + '/src/apputil',
+
       actions: __dirname + '/src/actions',
       api: __dirname + '/src/api',
       db: __dirname + '/src/data/db',
