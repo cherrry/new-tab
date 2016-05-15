@@ -9,8 +9,8 @@ import weatherServ from 'api/serv/weather-serv'
 let minutes = 60 * 1000
 let hours = 60 * minutes
 
-addTask(0, 1 * hours, 10 * minutes, updateCurrentLocation)
-addTask(0, 20 * hours, 5 * minutes, updateWeatherData)
+addTask(0, 10 * minutes, 15 * minutes, updateCurrentLocation)
+addTask(0, 20 * minutes, 30 * minutes, updateWeatherData)
 
 messageHandler()
   .addHandler(weatherServ)
