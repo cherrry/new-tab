@@ -9,8 +9,9 @@
   },
   "permissions": [
     "geolocation",
-    "*://*.hko.gov.hk/*",
-    "*://*.weather.com.cn/*"
+    "http://*.hko.gov.hk/*",
+    "http://*.weather.com.cn/*",
+    "http://api.openweathermap.org/*"
   ],
   "background": {
     "scripts": [

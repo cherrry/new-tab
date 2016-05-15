@@ -5,7 +5,8 @@ export let connection = schema.connect()
     let location = db.getSchema().table('Location')
     let locations = [
       { name: 'hongkong', latitude: 22.3964, longitude: 113.1095 },
-      { name: 'beijing', latitude: 39.9042, longitude: 116.4074 }
+      { name: 'beijing', latitude: 39.9042, longitude: 116.4074 },
+      { name: 'mountainview', latitude: 37.3861, longitude: -122.0839 }
     ]
 
     return db.insertOrReplace()

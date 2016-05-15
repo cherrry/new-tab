@@ -4,6 +4,7 @@ import { todayWeather, fourDaysForecast } from 'serv/repo/weather-repo'
 
 import { hongkongWeatherAjax } from './ajax/hongkong-weather'
 import { beijingWeatherAjax } from './ajax/beijing-weather'
+import { mountainviewWeatherAjax } from './ajax/mountainview-weather'
 
 export function weatherData(location) {
   return Promise.all([
@@ -20,7 +21,8 @@ export function weatherData(location) {
 
 let ajaxWeather = {
   hongkong: hongkongWeatherAjax,
-  beijing: beijingWeatherAjax
+  beijing: beijingWeatherAjax,
+  mountainview: mountainviewWeatherAjax
 }
 
 export function ajaxWeatherData(location) {
