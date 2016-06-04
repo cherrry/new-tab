@@ -1,10 +1,8 @@
 import styles from './datetime.scss'
 
 import React from 'react'
-import { findDOMNode } from 'react-dom'
 import CSSModules from 'react-css-modules'
 
-import Bounce from 'bounce.js'
 import { sprintf } from 'sprintf-js'
 
 import TimeFormat from './datetime/time-format'
@@ -41,17 +39,6 @@ let dateFormat = function (dt) {
 }
 
 class Datetime extends React.Component {
-  componentDidMount() {
-    let elem = findDOMNode(this)
-    new Bounce()
-      .translate({
-        from: { x: 0, y: -128 },
-        to: { x: 0, y: 0 },
-        duration: 3072
-      })
-      .applyTo(elem, { remove: true })
-  }
-
   render() {
     return (
       <div {...this.props} styleName="container">

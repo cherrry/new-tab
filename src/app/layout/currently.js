@@ -1,6 +1,7 @@
 import styles from './currently.scss'
 
 import React from 'react'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
 import CSSModules from 'react-css-modules'
 
 import Datetime from './currently/datetime'
@@ -11,7 +12,12 @@ class Currently extends React.Component {
     return (
       <div styleName="container">
         <div styleName="main">
-          <Datetime />
+          <CSSTransitionGroup component="div" transitionName={{
+            appear: styles['datetime-appear'],
+            appearActive: styles['datetime-appear-active']
+          }} transitionAppearTimeout={0} transitionAppear={true} transitionEnterTimeout={0} transitionLeaveTimeout={0}>
+            <Datetime />
+          </CSSTransitionGroup>
           <Weather />
         </div>
       </div>

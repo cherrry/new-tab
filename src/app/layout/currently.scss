@@ -9,7 +9,20 @@
   position: absolute;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.datetime {
+  &-appear {
+    position: relative;
+    opacity: 0;
+    top: -5em;
+
+    &-active {
+      opacity: 1;
+      top: 0;
+      transition: all 1s cubic-bezier(.3, -.5, .3, 1.5);
+    }
+  }
 }
